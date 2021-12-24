@@ -51,6 +51,10 @@ public class TransactionMQProducer extends DefaultMQProducer {
         super(namespace, producerGroup, rpcHook);
     }
 
+    public TransactionMQProducer(final String namespace, final String producerGroup, RPCHook rpcHook, boolean enableMsgTrace, final String customizedTraceTopic) {
+        super(namespace, producerGroup, rpcHook, enableMsgTrace, customizedTraceTopic);
+    }
+
     @Override
     public void start() throws MQClientException {
         this.defaultMQProducerImpl.initTransactionEnv();
@@ -86,6 +90,7 @@ public class TransactionMQProducer extends DefaultMQProducer {
             throw new MQClientException("TransactionListener is null", null);
         }
 
+        msg.setTopic(NamespaceUtil.wrapNamespace(this.getNamespace(), msg.getTopic()));
         return this.defaultMQProducerImpl.sendMessageInTransaction(msg, null, arg);
     }
 

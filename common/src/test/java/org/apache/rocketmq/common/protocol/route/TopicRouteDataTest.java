@@ -15,7 +15,7 @@
  * limitations under the License.
  */
 
-package org.apache.rocketmq.common.protocol;
+package org.apache.rocketmq.common.protocol.route;
 
 
 import org.apache.rocketmq.common.protocol.route.BrokerData;
@@ -43,7 +43,7 @@ public class TopicRouteDataTest {
         queueData.setPerm(6);
         queueData.setReadQueueNums(8);
         queueData.setWriteQueueNums(8);
-        queueData.setTopicSynFlag(0);
+        queueData.setTopicSysFlag(0);
 
         List<QueueData> queueDataList = new ArrayList<QueueData>();
         queueDataList.add(queueData);
@@ -78,7 +78,7 @@ public class TopicRouteDataTest {
         queueData.setPerm(6);
         queueData.setReadQueueNums(8);
         queueData.setWriteQueueNums(8);
-        queueData.setTopicSynFlag(0);
+        queueData.setTopicSysFlag(0);
 
         List<QueueData> queueDataList = new ArrayList<QueueData>();
         queueDataList.add(queueData);
